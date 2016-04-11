@@ -32,6 +32,10 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
+    <form method="get" action="search.php">
+      <input name="search" type="text" />
+      <input type="submit">
+    </form>
   </div>
 </nav>
 
