@@ -6,7 +6,8 @@ $userName = $_GET['username'];
 $password = $_GET['password'];
 
 try {
-    $connection = new PDO("mysql:host=localhost;dbname=security", "root", "rewind95591");
+    //$connection = new PDO("mysql:host=localhost;dbname=security", "root", "rewind95591");
+    $connection = new PDO("mysql:host=localhost;dbname=security", "root", "");
     // set the PDO error mode to exception
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
