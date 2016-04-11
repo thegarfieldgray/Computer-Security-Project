@@ -23,6 +23,17 @@
 <body>
 
 <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CS | Auto Parts</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">List</a></li>
+      <li><a href="./account.php">Account </a></li> 
+      <li><a href="#">About</a></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
