@@ -1,6 +1,4 @@
-<?php
-require 'login-form.php';
-?>
+<!DOCType>
 <html>
 <head>
   <meta charset="utf-8">
@@ -11,6 +9,7 @@ require 'login-form.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
+<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -18,7 +17,7 @@ require 'login-form.php';
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#">List</a></li>
-      <li><a href="#">Update <?php echo $userName; ?></a></li> 
+      <li><a href="#">Update </a></li> 
       <li><a href="#">About</a></li> 
     </ul>
     <ul class="nav navbar-nav navbar-right">
