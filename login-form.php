@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(isset($_GET['login-submit'])){
 
 $userName = $_GET['username'];
@@ -28,7 +28,8 @@ try {
     if(count($result) > 0){
         $user = $result[0];
         if($user['Password'] === $password){
-            echo "redirect";
+            $_SESSION['user'] = $user;
+            //echo "redirect";
             header('location: home.php');
         }
         else{
@@ -37,7 +38,7 @@ try {
         }
     } 
     else{
-
+        echo "Something went horribly wrong! Check your password or the world will end! :(";
     }
  }
 catch(PDOException $err)
