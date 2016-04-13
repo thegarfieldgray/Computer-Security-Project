@@ -1,5 +1,3 @@
-
-
 <!DOCtype>
 <html>
 <head>
@@ -27,11 +25,16 @@
 							</div>
 						</div>
 						<hr>
+                        <?php if(isset($_GET['error'])){ ?>
+                            <div class="alert alert-danger">
+                                <?php  echo $_GET['error']; ?>
+                            </div>
+                        <?php } ?>
 					</div>
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form action="login-form.php" method="get" role="form" style="display: block;">
+								<form action="login-form.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" >
 									</div>
@@ -48,7 +51,7 @@
 												<input type="submit" name="login-submit" class="form-control btn btn-login" value="Log In">
 											</div>
 											<div class="col-sm-6">
-											<input type = "submit" name="submit-button" class="form-control btn btn-signup" value="Sign Up">
+											<a class="form-control btn btn-signup" href="signup.php">SUGN UP</a>
 											</div>
 										</div>
 									</div>

@@ -1,50 +1,42 @@
 <?php
+    session_start();
+    require_once('User.php');
+    $user = new User();
 
-if(isset($_GET['sign-up'])){
-
-    $firstName = $_GET['firstName'];
-    $lastName = $_GET['lastName'];
-    $userName = $_GET['userName'];
-    $password = $_GET['password'];
-    $Credit = $_GET['creditCard'];
-    $Address = $_GET['address'];
-
-
-try {
-    $connection = new PDO("mysql:host=localhost;dbname=security", "root", "rewind95591");
-    // set the PDO error mode to exception
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-/*
-    $query = "SELECT * FROM customer";
-    $query .=" WHERE Username = '" . $userName ."'";
-
-    $result = $connection ->prepare($query);
-    $result->execute();
-    $result = $result->fetchAll();
-
-    if(count($result) < 0){
-        echo "$userName already exist";
-        header( "Refresh:1; url=Index.php", true, 303);
-    }
-    else{*/
-
-    $sql = " INSERT INTO customer (First_Name,Last_Name,Username,Password,Credit_Card, Address) ";
-    $sql .= " VALUES ('$firstName', '$lastName', '$userName', '$password', '$Credit', '$Address')";
-
-    $connection->exec($sql);
-    header( "Refresh:1; url=Index.php", true, 303);
-
-    //}
-}
-catch(PDOException $e)
+    if($user->isLoggedin() != true)
     {
-    echo $e->getMessage();
+        $user->redirect('index.php');
     }
 
-$connection = null;
+    if(isset($_POST['sign-up']))
+    {
+        $fname = strip_tags($_POST['firstName']);
+        $lname = strip_tags($_POST['lastName']);
+        $username = strip_tags($_POST['userName']);
+        $password = strip_tags($_POST['password']);
+        $credit = strip_tags($_POST['creditCard']);
+        $address = strip_tags($_POST['address']);
 
-}
-else if(isset($_GET['btn-login'])){
-    header('Location: Index.php');
-}
+        try
+        {
+            $stmt = $user->runQuery("SELECT Username FROM customer WHERE Username=:uname");
+            $stmt->execute(array(':uname'=>$username));
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+            if($result['Username'] === $username) {
+                $error = "Sorry that username is already taken.";
+                $user->redirect('signup.php?error=' . $error);
+            }
+            else
+            {
+                if($user->signup($fname, $lname, $username, $password, $credit, $address)){	
+                    $user->redirect('index.php');
+                }
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }	
+    }
 ?>

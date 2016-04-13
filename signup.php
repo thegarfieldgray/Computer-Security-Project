@@ -27,11 +27,16 @@
 							</div>
 						</div>
 						<hr>
+                        <?php if(isset($_GET['error'])){ ?>
+                            <div class="alert alert-danger">
+                                <?php  echo $_GET['error']; ?>
+                            </div>
+                        <?php } ?>
 					</div>
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form action="signup-form.php" method="get" role="form" style="display: block;">
+								<form action="signup-form.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 									<p>First Name: </p>
 										<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First name" >
