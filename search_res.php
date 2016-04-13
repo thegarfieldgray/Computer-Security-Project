@@ -23,7 +23,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">CS | Auto Parts</a>
+      <a class="navbar-brand" href="./home.php">CS | Auto Parts</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#">List</a></li>

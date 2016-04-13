@@ -12,32 +12,30 @@
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 80%;
       margin: auto;
   }
   </style>
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">CS | Auto Parts</a>
+      <a class="navbar-brand" href="./home.php">CS | Auto Parts</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">List</a></li>
+      <li><a href="list.php">List</a></li>
       <li><a href="./account.php">Account </a></li> 
-      <li><a href="#">About</a></li> 
+      <li><a href="about.php">About</a></li>
+      <li id="padding-left"><form method="get" action="search.php" id="padding-2x">
+      <input name="search" type="text" placeholder="Type name of car"/>
+      <input type="submit" value="Search">
+    </form></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
-    <form method="get" action="search.php">
-      <input name="search" type="text" />
-      <input type="submit">
-    </form>
   </div>
-</nav>
 
 <div class="container-fluid">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
